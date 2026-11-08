@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<!-- Effect: pinch (a ring, scaled by the code).
+     White halo outside a dark rim, drawn by hand (the filter would fill the ring). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <g transform="translate(64 64)">
+    <circle r="46" fill="none" stroke="#ffffff" stroke-width="18"/>
+    <circle r="46" fill="none" stroke="#3d1d00" stroke-width="12"/>
+    <circle r="46" fill="none" stroke="#e66100" stroke-width="7"/>
+    <circle r="46" fill="none" stroke="#ffbe6f" stroke-width="3" stroke-dasharray="12 10"/>
+    <g stroke-linejoin="round">
+      <g fill="#ffffff" stroke="#ffffff" stroke-width="10">
+        <path d="M0 -30 L-8 -16 L8 -16 Z"/>
+        <path d="M0 30 L-8 16 L8 16 Z"/>
+        <path d="M-30 0 L-16 -8 L-16 8 Z"/>
+        <path d="M30 0 L16 -8 L16 8 Z"/>
+      </g>
+      <g fill="#ffa348" stroke="#3d1d00" stroke-width="3">
+        <path d="M0 -30 L-8 -16 L8 -16 Z"/>
+        <path d="M0 30 L-8 16 L8 16 Z"/>
+        <path d="M-30 0 L-16 -8 L-16 8 Z"/>
+        <path d="M30 0 L16 -8 L16 8 Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

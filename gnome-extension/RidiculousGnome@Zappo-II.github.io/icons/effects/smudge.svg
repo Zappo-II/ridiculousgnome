@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<!-- Effect: smudge (a finger resting on the touchpad); translucent, no halo -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="50%">
+      <stop offset="0" stop-color="#5e5c64" stop-opacity="0.55"/>
+      <stop offset="0.7" stop-color="#5e5c64" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#5e5c64" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="64" cy="64" rx="44" ry="58" fill="url(#g)"/>
+  <!-- A light rim, so it also shows on dark backgrounds -->
+  <ellipse cx="64" cy="64" rx="40" ry="54" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="4"/>
+  <g fill="none" stroke="#3d3846" stroke-opacity="0.25" stroke-width="3">
+    <ellipse cx="64" cy="62" rx="14" ry="20"/>
+    <ellipse cx="64" cy="62" rx="24" ry="32"/>
+    <ellipse cx="64" cy="62" rx="34" ry="44"/>
+  </g>
+</svg>

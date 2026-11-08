@@ -1,0 +1,821 @@
+# German translation for ridiculousgnome.
+# Copyright (C) 2026 Zappo-II
+# This file is distributed under the same license as the ridiculousgnome package.
+# Zappo-II, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ridiculousgnome\n"
+"Report-Msgid-Bugs-To: https://github.com/Zappo-II/ridiculousgnome/issues\n"
+"POT-Creation-Date: 2026-11-06 14:06+0100\n"
+"PO-Revision-Date: 2026-10-26 16:17+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:24
+msgid "Typing"
+msgstr "Tippen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:24
+msgid "Letters, digits, Space, Tab; Ctrl + V"
+msgstr "Buchstaben, Ziffern, Leertaste, Tab; Strg + V"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:25
+msgid "Deleting"
+msgstr "Löschen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:25
+msgid "BackSpace, Delete, Escape; Ctrl + X, Ctrl + C, Ctrl + Z"
+msgstr "Rücktaste, Entf, Escape; Strg + X, Strg + C, Strg + Z"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:26
+msgid "Return"
+msgstr "Eingabe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:27
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:53
+msgid "Shortcuts"
+msgstr "Kürzel"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:27
+msgid "Other keys with Ctrl, Alt or Super held; F-keys"
+msgstr "Andere Tasten mit Strg, Alt oder Super; F-Tasten"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:28
+msgid "Navigation"
+msgstr "Navigation"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:28
+msgid "Arrow keys, Home, End, Page Up, Page Down"
+msgstr "Pfeiltasten, Pos1, Ende, Bild auf, Bild ab"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:29
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:45
+msgid "Clicks"
+msgstr "Klicks"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:30
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:46
+msgid "Drags"
+msgstr "Ziehen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:31
+msgid "Mouse motion"
+msgstr "Mausbewegung"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:32
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:47
+msgid "Scrolling"
+msgstr "Scrollen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:32
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:47
+msgid "Mouse wheel and two-finger scrolling"
+msgstr "Mausrad und Scrollen mit zwei Fingern"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:33
+msgid "Swipes"
+msgstr "Wischen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:33
+msgid "Three or four fingers on the touchpad"
+msgstr "Drei oder vier Finger auf dem Touchpad"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:34
+msgid "Pinches"
+msgstr "Zusammenziehen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:35
+msgid "Touchpad touch"
+msgstr "Touchpad-Berührung"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:35
+msgid "Smudges while fingers rest on the touchpad"
+msgstr "Fingerabdrücke, solange Finger auf dem Touchpad liegen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:36
+msgid "Level-up"
+msgstr "Level-up"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:36
+msgid "Fireworks"
+msgstr "Feuerwerk"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:44
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:387
+msgid "Keys"
+msgstr "Tasten"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:44
+msgid "Keys and shortcuts"
+msgstr "Tasten und Tastenkürzel"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:45
+msgid ""
+"Rings: left button one, right two, middle three; thicker for a double click"
+msgstr ""
+"Ringe: linke Taste einer, rechte zwei, mittlere drei; dicker bei einem "
+"Doppelklick"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:46
+msgid "A line from the start to the pointer"
+msgstr "Eine Linie vom Start bis zum Mauszeiger"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:48
+msgid "Touchpad gestures"
+msgstr "Touchpad-Gesten"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/effects.js:48
+msgid "Swipes with three or more fingers, pinches"
+msgstr "Wischen mit drei oder mehr Fingern, Zusammenziehen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/evdevInputSource.js:201
+#, javascript-format
+msgid "version %d is too old for this extension, update rg-helper"
+msgstr "Version %d ist zu alt für diese Erweiterung, rg-helper aktualisieren"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/evdevInputSource.js:202
+#, javascript-format
+msgid "version %d is too new for this extension, update the extension"
+msgstr ""
+"Version %d ist zu neu für diese Erweiterung, die Erweiterung aktualisieren"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/fireworks.js:139
+#, javascript-format
+msgid "Level %d!"
+msgstr "Level %d!"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:89
+msgid "Limited mode"
+msgstr "Eingeschränkter Modus"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:90
+msgid ""
+"Effects only show for the shell itself, e.g. when typing in the Activities "
+"overview. For all apps, install the rg-helper service."
+msgstr ""
+"Effekte erscheinen nur für die Shell selbst, z. B. beim Tippen in der "
+"Aktivitäten-Übersicht. Für alle Apps den Dienst rg-helper installieren."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:92
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:104
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/panelIndicator.js:68
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:94
+msgid "Not now"
+msgstr "Nicht jetzt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:95
+msgid "Don't show again"
+msgstr "Nicht mehr anzeigen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:100
+msgid "Input helper not working"
+msgstr "Eingabe-Helper funktioniert nicht"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/helperNotice.js:101
+#, javascript-format
+msgid ""
+"rg-helper is installed but not working: %s\n"
+"Until it works, effects only show for the shell itself. See journalctl -u rg-"
+"helper."
+msgstr ""
+"rg-helper ist installiert, funktioniert aber nicht: %s\n"
+"Bis dahin erscheinen Effekte nur für die Shell selbst. Siehe journalctl -u "
+"rg-helper."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/panelIndicator.js:35
+msgid "Ridiculous Gnome"
+msgstr "Ridiculous Gnome"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/panelIndicator.js:65
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:700
+msgid "Show effects"
+msgstr "Effekte zeigen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/panelIndicator.js:67
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:562
+msgid "Sounds"
+msgstr "Töne"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/panelIndicator.js:116
+#, javascript-format
+msgid "Lv %d"
+msgstr "Lv %d"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/panelIndicator.js:117
+#, javascript-format
+msgid "Level %d"
+msgstr "Level %d"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/panelIndicator.js:119
+#, javascript-format
+msgid "%d / %d XP"
+msgstr "%d / %d XP"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:40
+msgid "Image"
+msgstr "Bild"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:41
+msgid "Sound"
+msgstr "Ton"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:42
+msgid "Shake the window"
+msgstr "Fenster wackeln lassen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:45
+msgid "Chip in the panel"
+msgstr "Chip im Panel"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:46
+msgid "Rings at the pointer"
+msgstr "Ringe am Mauszeiger"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:51
+msgid "Activity"
+msgstr "Aktivität"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:51
+msgid "A symbol for every key, nothing about which key."
+msgstr "Ein Symbol für jede Taste, nichts darüber, welche."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:52
+msgid "Classes"
+msgstr "Klassen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:52
+msgid "Letter, digit, symbol, space, and keys like Return or Shift."
+msgstr ""
+"Buchstabe, Ziffer, Sonderzeichen, Leerzeichen und Tasten wie Enter oder "
+"Umschalt."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:53
+msgid ""
+"As classes, but with Ctrl, Alt or Super held the key itself: Ctrl + T. Typed "
+"text stays hidden."
+msgstr ""
+"Wie Klassen, aber bei gehaltenem Strg, Alt oder Super die Taste selbst: Ctrl "
+"+ T. Getippter Text bleibt verborgen."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:54
+msgid "Characters"
+msgstr "Zeichen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:54
+msgid "The typed characters."
+msgstr "Die getippten Zeichen."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:59
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:148
+msgid "Ridiculous"
+msgstr "Ridiculous"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:59
+msgid "Effects inspired by Ridiculous Coding."
+msgstr "Effekte nach dem Vorbild von Ridiculous Coding."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:60
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:156
+msgid "Presentation"
+msgstr "Präsentation"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:60
+msgid "Professional, for screencasts, tutorials and live demos."
+msgstr "Professionell, für Screencasts, Anleitungen und Live-Demos."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:65
+msgid "Subtitle (bottom centre)"
+msgstr "Untertitel (unten mittig)"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:66
+msgid "Heading (top centre)"
+msgstr "Überschrift (oben mittig)"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:67
+msgid "Card in a corner"
+msgstr "Karte in einer Ecke"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:70
+msgid "Top left"
+msgstr "Oben links"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:71
+msgid "Top right"
+msgstr "Oben rechts"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:72
+msgid "Bottom left"
+msgstr "Unten links"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:73
+msgid "Bottom right"
+msgstr "Unten rechts"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:76
+msgid "Primary monitor"
+msgstr "Hauptmonitor"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:77
+msgid "Monitor with the pointer"
+msgstr "Monitor mit dem Mauszeiger"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:80
+msgid "Small"
+msgstr "Klein"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:81
+msgid "Medium"
+msgstr "Mittel"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:82
+msgid "Large"
+msgstr "Groß"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:85
+msgid "Dark"
+msgstr "Dunkel"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:86
+msgid "Light"
+msgstr "Hell"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:87
+msgid "High contrast"
+msgstr "Hoher Kontrast"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:88
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:92
+msgid "Custom"
+msgstr "Eigene"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:91
+msgid "System accent colour"
+msgstr "Akzentfarbe des Systems"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:97
+#, javascript-format
+msgid "Like all windows (%s)"
+msgstr "Wie alle Fenster (%s)"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:98
+msgid "Off"
+msgstr "Aus"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:99
+msgid "Mouse only"
+msgstr "Nur Maus"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:106
+msgid "Available"
+msgstr "Verfügbar"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:107
+msgid "Off in GNOME"
+msgstr "In GNOME aus"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:107
+msgid "Reduce Animation is on (Settings → Accessibility)."
+msgstr "„Animationen reduzieren“ ist an (Einstellungen → Barrierefreiheit)."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:108
+msgid "Disabled by the shell"
+msgstr "Von der Shell abgeschaltet"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:108
+msgid ""
+"No hardware-accelerated rendering (e.g. a VM without 3D) or a remote session."
+msgstr ""
+"Keine Hardwarebeschleunigung (z. B. eine VM ohne 3D) oder eine Fernsitzung."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:109
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:416
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:109
+msgid "The extension is not running, so the shell state cannot be read."
+msgstr ""
+"Die Erweiterung läuft nicht, daher ist der Zustand der Shell unbekannt."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:137
+msgid "General"
+msgstr "Allgemein"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:164
+msgid "Windows"
+msgstr "Fenster"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:181
+msgid "Reset to Defaults"
+msgstr "Auf Standard zurücksetzen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:187
+msgid "Settings reset"
+msgstr "Einstellungen zurückgesetzt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:187
+msgid "Undo"
+msgstr "Rückgängig"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:211
+#, javascript-format
+msgid "%s mode is not on"
+msgstr "Modus „%s“ ist nicht an"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:212
+msgid "These settings apply once it is chosen on the General page."
+msgstr ""
+"Diese Einstellungen gelten, sobald er auf der Seite Allgemein gewählt ist."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:217
+msgid "Switch to it"
+msgstr "Einschalten"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:250
+#, javascript-format
+msgid "Version %s"
+msgstr "Version %s"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:251
+msgid "Development version"
+msgstr "Entwicklungsversion"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:265
+msgid "Status"
+msgstr "Status"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:268
+msgid "Check again"
+msgstr "Erneut prüfen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:286
+msgid "Everything works"
+msgstr "Alles funktioniert"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:287
+msgid "Keyboard and mouse input from all apps through rg-helper."
+msgstr "Tastatur- und Mauseingaben aus allen Apps über rg-helper."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:331
+msgid "Limited mode: connecting to the input helper"
+msgstr "Eingeschränkter Modus: Verbindung zum Eingabe-Helper wird hergestellt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:332
+msgid "Effects only show for the shell itself until rg-helper answers."
+msgstr "Effekte erscheinen nur für die Shell selbst, bis rg-helper antwortet."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:337
+msgid "Limited mode: input helper not installed"
+msgstr "Eingeschränkter Modus: Eingabe-Helper nicht installiert"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:338
+msgid ""
+"Effects only show for the shell itself (e.g. typing in the Activities "
+"overview), not for apps. For all apps, install the rg-helper service."
+msgstr ""
+"Effekte erscheinen nur für die Shell selbst (z. B. beim Tippen in der "
+"Aktivitäten-Übersicht), nicht für Apps. Für alle Apps den Dienst rg-helper "
+"installieren."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:339
+msgid "How to install"
+msgstr "Installationsanleitung"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:344
+msgid "Limited mode: input helper not working"
+msgstr "Eingeschränkter Modus: Eingabe-Helper funktioniert nicht"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:345
+#, javascript-format
+msgid ""
+"rg-helper is installed but does not start: %s\n"
+"Until it works, effects only show for the shell itself. See journalctl -u rg-"
+"helper."
+msgstr ""
+"rg-helper ist installiert, startet aber nicht: %s\n"
+"Bis dahin erscheinen Effekte nur für die Shell selbst. Siehe journalctl -u "
+"rg-helper."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:347
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:367
+msgid "Report a problem"
+msgstr "Problem melden"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:355
+msgid "Extension is off"
+msgstr "Erweiterung ist aus"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:356
+msgid ""
+"Turn it on, e.g. in Extension Manager or with gnome-extensions enable. "
+"Settings can be changed meanwhile."
+msgstr ""
+"Einschalten, z. B. im Extension Manager oder mit gnome-extensions enable. "
+"Einstellungen lassen sich trotzdem ändern."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:364
+msgid "Links"
+msgstr "Links"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:366
+msgid "Source code and documentation"
+msgstr "Quellcode und Dokumentation"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:368
+#, javascript-format
+msgid "Licence (%s)"
+msgstr "Lizenz (%s)"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:371
+msgid "GNOME Extensions"
+msgstr "GNOME Extensions"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:388
+msgid ""
+"Any program you run could ask rg-helper for your keystrokes, so it only "
+"hands out characters when the administrator allows it."
+msgstr ""
+"Jedes Programm, das du startest, könnte rg-helper nach deinen Tastendrücken "
+"fragen. Deshalb gibt er Zeichen nur heraus, wenn der Administrator es "
+"erlaubt."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:392
+msgid "Key labels show"
+msgstr "Tasten-Beschriftungen zeigen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:396
+msgid "Allowed by rg-helper"
+msgstr "Von rg-helper erlaubt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:401
+msgid "How to allow more"
+msgstr "Wie man mehr erlaubt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:418
+msgid "rg-helper is not running right now, so its limit is not known."
+msgstr "rg-helper läuft gerade nicht, daher ist seine Grenze unbekannt."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:420
+#, javascript-format
+msgid ""
+"Labels are cut down to “%s”. Allowing more is up to the administrator (max-"
+"detail in /etc/rg-helper.conf)."
+msgstr ""
+"Beschriftungen werden auf „%s“ reduziert. Mehr zu erlauben ist Sache des "
+"Administrators (max-detail in /etc/rg-helper.conf)."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:460
+msgid "Event types"
+msgstr "Ereignisarten"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:495
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:499
+msgid "Preview"
+msgstr "Vorschau"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:559
+msgid "Effects"
+msgstr "Effekte"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:563
+msgid ""
+"Played as system sounds: volume in Settings → Sound → Volume Levels → System "
+"Sounds. Also in the top bar menu."
+msgstr ""
+"Als Systemklänge abgespielt: Lautstärke unter Einstellungen → Audio → "
+"Lautstärkestufen → Systemklänge. Auch im Menü der oberen Leiste."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:597
+msgid ""
+"Nothing shakes while effects do not move: “Animate effects” is off on the "
+"General page, or animations are reduced or off in GNOME."
+msgstr ""
+"Nichts wackelt, solange Effekte sich nicht bewegen: „Effekte animieren“ ist "
+"auf der Seite Allgemein aus, oder Animationen sind in GNOME reduziert oder "
+"aus."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:613
+msgid "Labels"
+msgstr "Beschriftungen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:615
+msgid "Show typed keys and shortcuts"
+msgstr "Getippte Tasten und Kürzel zeigen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:616
+msgid "As much of the key as the key detail level shows."
+msgstr "So viel von der Taste, wie die Detailstufe zeigt."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:625
+msgid "Experience"
+msgstr "Erfahrung"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:626
+msgid "Typing earns XP, deleting costs it."
+msgstr "Tippen bringt XP, Löschen kostet welche."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:628
+msgid "Show the level in the top bar"
+msgstr "Level in der oberen Leiste anzeigen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:639
+msgid "Progress"
+msgstr "Fortschritt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:641
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:662
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:649
+#, javascript-format
+msgid "Level %d · %d XP"
+msgstr "Level %d · %d XP"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:658
+msgid "Reset XP?"
+msgstr "XP zurücksetzen?"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:659
+msgid "Starts over at level 1 with 0 XP."
+msgstr "Beginnt wieder bei Level 1 mit 0 XP."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:661
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:678
+msgid "Mode"
+msgstr "Modus"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:701
+msgid "Off pauses everything, e.g. during a call."
+msgstr "Aus pausiert alles, z. B. während eines Anrufs."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:706
+msgid "Show in the top bar"
+msgstr "In der oberen Leiste anzeigen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:707
+msgid "Pause, sounds and settings at hand."
+msgstr "Pause, Sounds und Einstellungen griffbereit."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:747
+msgid "Placement"
+msgstr "Platzierung"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:748
+msgid "Keys, shortcuts and the wheel at a fixed place."
+msgstr "Tasten, Kürzel und Mausrad an einer festen Stelle."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:750
+msgid "Show keys as"
+msgstr "Tasten zeigen als"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:751
+msgid "Corner"
+msgstr "Ecke"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:753
+msgid "Monitor"
+msgstr "Monitor"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:754
+msgid "Size"
+msgstr "Größe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:757
+msgid "Fade out after"
+msgstr "Ausblenden nach"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:758
+msgid "Seconds without input"
+msgstr "Sekunden ohne Eingabe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:783
+msgid "Look"
+msgstr "Aussehen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:784
+msgid "Style"
+msgstr "Stil"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:789
+msgid "Panel colour"
+msgstr "Farbe der Fläche"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:791
+msgid "Text colour"
+msgstr "Textfarbe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:792
+msgid "Key colour"
+msgstr "Tastenfarbe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:796
+msgid "Accent colour"
+msgstr "Akzentfarbe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:797
+msgid "Click rings, drags and held keys."
+msgstr "Klick-Ringe, Ziehen und gehaltene Tasten."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:799
+msgid "Custom accent colour"
+msgstr "Eigene Akzentfarbe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:842
+msgid "Panel opacity"
+msgstr "Deckkraft der Fläche"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:843
+msgid "Percent"
+msgstr "Prozent"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:867
+msgid "Animation"
+msgstr "Animation"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:869
+msgid "Shell animations"
+msgstr "Shell-Animationen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:877
+msgid "Animate effects"
+msgstr "Effekte animieren"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:905
+msgid "Window rules"
+msgstr "Fensterregeln"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:906
+msgid ""
+"“Off” shows no effects while that window has the focus, “Mouse only” no keys "
+"but clicks and the wheel, e.g. for a password manager. The other levels set "
+"what key labels show there. All other windows follow “Key labels show” on "
+"the General page."
+msgstr ""
+"„Aus“ zeigt keine Effekte, solange das Fenster den Fokus hat, „Nur Maus“ "
+"keine Tasten, aber Klicks und Mausrad, z. B. für einen Passwortmanager. Die "
+"anderen Stufen legen fest, was Tasten-Beschriftungen dort zeigen. Alle "
+"anderen Fenster folgen „Tasten-Beschriftungen zeigen“ auf der Seite "
+"Allgemein."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:909
+msgid "Show active window classes"
+msgstr "Klassen offener Fenster zeigen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:925
+msgid "Add WM class"
+msgstr "WM-Klasse hinzufügen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:928
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1031
+msgid "Add rule"
+msgstr "Regel hinzufügen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:970
+msgid "Remove rule"
+msgstr "Regel entfernen"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:999
+msgid "Windows open right now. Adding one creates a rule set to “Off”."
+msgstr "Gerade offene Fenster. Hinzufügen legt eine Regel mit „Aus“ an."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1006
+msgid "Active window classes"
+msgstr "Klassen offener Fenster"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1019
+msgid "The extension is off, so it cannot see the windows."
+msgstr "Die Erweiterung ist aus und sieht deshalb keine Fenster."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1021
+msgid "No windows open."
+msgstr "Keine Fenster offen."
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1027
+msgid "Has a rule"
+msgstr "Hat eine Regel"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1052
+msgid "Input"
+msgstr "Eingabe"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1055
+msgid "Warn when the helper is missing"
+msgstr "Warnen, wenn der Helper fehlt"
+
+#: gnome-extension/RidiculousGnome@Zappo-II.github.io/prefs.js:1056
+msgid "A notification once per session while rg-helper is not installed."
+msgstr ""
+"Eine Benachrichtigung pro Sitzung, solange rg-helper nicht installiert ist."

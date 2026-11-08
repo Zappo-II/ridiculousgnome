@@ -1,0 +1,146 @@
+/* SPDX-FileCopyrightText: 2026 Zappo-II */
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+
+/* Sizes in pt so per-monitor scaling applies on mixed-DPI setups */
+
+/* Ridiculous mode: the key over a blip or boom; colour set inline */
+.rc-sprite-label {
+    font-size: 18pt;
+    font-weight: 800;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Presentation mode: a panel with keycap chips. Style presets below
+   (rc-pres-style-*); the custom style and the accent colour (held chips,
+   rings) are inline styles from look.js */
+.rc-pres-line,
+.rc-pres-card {
+    background-color: rgba(20, 20, 20, 0.82);
+    border-radius: 14px;
+    padding: 8px;
+    spacing: 8px;
+}
+
+.rc-pres-row {
+    spacing: 8px;
+}
+
+.rc-pres-chip {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom-width: 3px;
+    border-radius: 8px;
+    padding: 4px 12px;
+}
+
+.rc-pres-live {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Light: light panel, dark text */
+.rc-pres-style-light {
+    background-color: rgba(250, 250, 250, 0.92);
+}
+
+.rc-pres-style-light .rc-pres-chip {
+    color: #1e1e1e;
+    background-color: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.22);
+}
+
+.rc-pres-style-light .rc-pres-live {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+/* High contrast: opaque, thick borders; for compressed video and small
+   resolutions */
+.rc-pres-style-high-contrast {
+    background-color: #000000;
+    border: 2px solid #ffffff;
+}
+
+.rc-pres-style-high-contrast .rc-pres-chip {
+    color: #ffffff;
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    border-bottom-width: 4px;
+}
+
+.rc-pres-style-high-contrast .rc-pres-live {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.rc-pres-small .rc-pres-chip { font-size: 12pt; }
+.rc-pres-medium .rc-pres-chip { font-size: 16pt; }
+.rc-pres-large .rc-pres-chip { font-size: 22pt; }
+
+/* Click rings; the radius is clamped to half the size. The colour is the
+   accent colour, set inline (clickRings.js) */
+.rc-ring {
+    border: 3px solid #3584e4;
+    border-radius: 999px;
+}
+
+.rc-ring-double {
+    border-width: 7px;
+}
+
+/* Drag: anchor at the start, a line to the ring following the pointer */
+.rc-drag-anchor {
+    border-width: 2px;
+}
+
+.rc-drag-follower {
+    border-width: 4px;
+}
+
+.rc-drag-line {
+    border-radius: 2px;
+}
+
+/* Ridiculous mode: XP in the top bar and its menu */
+.rc-xp-panel-label {
+    font-weight: bold;
+}
+
+.rc-xp-level {
+    font-weight: bold;
+}
+
+.rc-xp-progress {
+    spacing: 6px;
+}
+
+.rc-xp-bar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.rc-xp-bar-inner {
+    height: 8px;
+    border-radius: 4px;
+    background-color: -st-accent-color;
+}
+
+.rc-xp-label {
+    font-size: 9pt;
+}
+
+/* Ridiculous mode: "Level 4!" instead of fireworks with reduced motion;
+   about three times the presentation mode's large chips */
+.rc-level-up {
+    color: #ffffff;
+    font-size: 64pt;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+/* Ridiculous mode: a firework's dot; colour set inline */
+.rc-firework {
+    width: 7px;
+    height: 7px;
+    border-radius: 4px;
+}

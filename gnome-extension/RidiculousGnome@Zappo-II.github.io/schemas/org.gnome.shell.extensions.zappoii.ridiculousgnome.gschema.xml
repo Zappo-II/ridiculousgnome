@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<schemalist>
+  <schema id="org.gnome.shell.extensions.zappoii.ridiculousgnome"
+          path="/org/gnome/shell/extensions/zappoii/ridiculousgnome/">
+
+    <!-- Presentation mode: event types; ridiculous mode has ridiculous-effects -->
+    <key name="presentation-effects" type="a{s(bb)}">
+      <default>{}</default>
+      <summary>Presentation mode: chip and mark per trigger</summary>
+      <description>Trigger id → (chip, mark). Ids: keys, click, drag, scroll, gesture. chip: shown in the panel; mark: rings at a click, a line from a drag's start to the pointer (keys, scroll and gesture have none). A drag is shown also with click chip and rings off; with both drag switches off it shows as a long press. Missing ids take the built-in default (all on).</description>
+    </key>
+
+    <!-- Key detail -->
+    <key name="key-detail" type="s">
+      <choices>
+        <choice value="activity"/>
+        <choice value="classes"/>
+        <choice value="shortcuts"/>
+        <choice value="characters"/>
+      </choices>
+      <default>"shortcuts"</default>
+      <summary>How much key labels show</summary>
+      <description>"activity": a symbol for every key; "classes": letter, digit, symbol, space and the names of non-printing keys (Return, Shift, …); "shortcuts": like classes, but with Ctrl, Alt or Super held the key itself (Ctrl + T); "characters": the typed character. rg-helper caps this at its max-detail (default "shortcuts", set by root in /etc/rg-helper.conf), because any process of the logged-in user can ask it for keys.</description>
+    </key>
+
+    <!-- Window rules -->
+    <key name="window-rules" type="a{ss}">
+      <default>{}</default>
+      <summary>Detail level per window</summary>
+      <description>WM class of the focused window → "global" (same as no rule), "off" (no effects at all), "mouse" (no keys; clicks, drags and the wheel still show), "activity", "classes", "shortcuts" or "characters" (key labels, capped by rg-helper's max-detail). Windows without a rule get key-detail. A rule may be more or less revealing than key-detail.</description>
+    </key>
+    <key name="window-classes-request" type="u">
+      <default>0</default>
+      <summary>Ask for the open windows (written by prefs)</summary>
+      <description>Not a user setting. Prefs changes it to have the extension write open-window-classes.</description>
+    </key>
+    <key name="open-window-classes" type="a(sss)">
+      <default>[]</default>
+      <summary>Open windows (written by the extension)</summary>
+      <description>Not a user setting. WM class, app name and icon of each open window, for prefs' "Show active window classes".</description>
+    </key>
+
+    <!-- Effect mode -->
+    <key name="effect-mode" type="s">
+      <choices>
+        <choice value="ridiculous"/>
+        <choice value="presentation"/>
+      </choices>
+      <default>"ridiculous"</default>
+      <summary>How input is shown</summary>
+      <description>"ridiculous": playful effects where you type and click; "presentation": keys and shortcuts at a fixed place on screen, e.g. for screen recordings.</description>
+    </key>
+    <key name="show-effects" type="b">
+      <default>true</default>
+      <summary>Show effects</summary>
+      <description>Off: a pause in both modes, no effects, no sounds and no XP, e.g. during a call. Also in the top bar menu.</description>
+    </key>
+    <key name="panel-indicator" type="b">
+      <default>true</default>
+      <summary>Show in the top bar</summary>
+      <description>A button in the top bar, in both modes: its menu pauses effects, switches sounds (ridiculous mode) and opens the settings. In ridiculous mode it can also show the level (ridiculous-xp-indicator).</description>
+    </key>
+
+    <!-- Presentation mode -->
+    <key name="presentation-target" type="s">
+      <choices>
+        <choice value="subtitle"/>
+        <choice value="heading"/>
+        <choice value="card"/>
+      </choices>
+      <default>"subtitle"</default>
+      <summary>Where presentation mode shows keys</summary>
+      <description>"subtitle": one line at the bottom centre; "heading": one line at the top centre; "card": a card in a corner with rows for modifiers, key and scroll.</description>
+    </key>
+    <key name="presentation-corner" type="s">
+      <choices>
+        <choice value="top-left"/>
+        <choice value="top-right"/>
+        <choice value="bottom-left"/>
+        <choice value="bottom-right"/>
+      </choices>
+      <default>"bottom-right"</default>
+      <summary>Corner of the card</summary>
+    </key>
+    <key name="presentation-monitor" type="s">
+      <choices>
+        <choice value="primary"/>
+        <choice value="pointer"/>
+      </choices>
+      <default>"primary"</default>
+      <summary>Monitor for presentation mode</summary>
+      <description>"primary": always the primary monitor; "pointer": the monitor with the mouse pointer.</description>
+    </key>
+    <key name="presentation-size" type="s">
+      <choices>
+        <choice value="small"/>
+        <choice value="medium"/>
+        <choice value="large"/>
+      </choices>
+      <default>"medium"</default>
+      <summary>Text size in presentation mode</summary>
+    </key>
+    <key name="presentation-idle-ms" type="u">
+      <range min="500" max="10000"/>
+      <default>2000</default>
+      <summary>Pause before presentation mode fades out (ms)</summary>
+    </key>
+    <key name="presentation-style" type="s">
+      <choices>
+        <choice value="dark"/>
+        <choice value="light"/>
+        <choice value="high-contrast"/>
+        <choice value="custom"/>
+      </choices>
+      <default>"dark"</default>
+      <summary>Look of the panel and its chips</summary>
+      <description>dark, light, high-contrast (opaque, thick borders, for compressed video) or custom (presentation-custom-*).</description>
+    </key>
+    <key name="presentation-custom-panel" type="s">
+      <default>"#141414"</default>
+      <summary>Custom style: panel colour</summary>
+      <description>As #rrggbb.</description>
+    </key>
+    <key name="presentation-custom-opacity" type="u">
+      <range min="0" max="100"/>
+      <default>82</default>
+      <summary>Custom style: panel opacity in percent</summary>
+    </key>
+    <key name="presentation-custom-text" type="s">
+      <default>"#ffffff"</default>
+      <summary>Custom style: text colour</summary>
+      <description>As #rrggbb.</description>
+    </key>
+    <key name="presentation-custom-chip" type="s">
+      <default>"#3a3a3a"</default>
+      <summary>Custom style: chip colour</summary>
+      <description>As #rrggbb; the chip's fill, its border is a darker shade.</description>
+    </key>
+    <key name="presentation-accent" type="s">
+      <choices>
+        <choice value="system"/>
+        <choice value="custom"/>
+      </choices>
+      <default>"system"</default>
+      <summary>Accent colour: the desktop's or presentation-accent-color</summary>
+      <description>For click rings, drags and held keys. system follows the accent colour in GNOME Settings → Appearance (GNOME 47+, blue before).</description>
+    </key>
+    <key name="presentation-accent-color" type="s">
+      <default>"#3584e4"</default>
+      <summary>Custom accent colour</summary>
+      <description>As #rrggbb; used when presentation-accent is custom.</description>
+    </key>
+
+    <!-- Ridiculous mode -->
+    <key name="ridiculous-effects" type="a{s(bbb)}">
+      <default>{}</default>
+      <summary>Ridiculous mode: image, sound and shake per trigger</summary>
+      <description>Trigger id → (image, sound, shake). Ids: typing, delete, return, combo, nav, click, drag, motion, scroll, swipe, pinch, touch, levelup. Missing ids take the built-in default. A trigger with all three off shows nothing; typing and Return still earn XP.</description>
+    </key>
+    <key name="ridiculous-sounds" type="b">
+      <default>true</default>
+      <summary>Ridiculous mode: play sounds</summary>
+      <description>Off: no sounds at all, without changing the sound switch of each trigger in ridiculous-effects. Also in the top bar menu.</description>
+    </key>
+    <key name="effect-preview-request" type="s">
+      <default>""</default>
+      <summary>Effect to preview (written by prefs)</summary>
+      <description>Not a user setting. "mode:trigger#n": the extension shows the trigger's effect (ids of ridiculous-effects or presentation-effects) as if it happened, with its switches, while that mode is on; n only makes each press a change.</description>
+    </key>
+    <key name="ridiculous-char-labels" type="b">
+      <default>true</default>
+      <summary>Show the typed key on effects</summary>
+      <description>Ridiculous mode: typed keys and shortcuts carry the key as a coloured label, at the focused window's key detail level.</description>
+    </key>
+    <key name="ridiculous-xp-indicator" type="b">
+      <default>true</default>
+      <summary>Show the XP level in the top bar</summary>
+      <description>Ridiculous mode: typing earns XP, deleting costs it; the level shows on the top bar button and the progress to the next one in its menu (needs panel-indicator). XP counts also when this is off.</description>
+    </key>
+    <key name="ridiculous-xp-state" type="(uuuu)">
+      <default>(0, 1, 0, 100)</default>
+      <summary>XP state (written by the extension)</summary>
+      <description>Not a user setting. Total XP, level, total XP at the start of the level, total XP for the next level. Reset it to start over at level 1.</description>
+    </key>
+
+    <!-- Animation -->
+    <key name="animate-labels" type="b">
+      <default>true</default>
+      <summary>Animate effects</summary>
+      <description>Ridiculous mode: effects move (grow, turn, fly), windows shake, a level-up sets off fireworks. Presentation mode: chips fade in and out, click rings expand. When off, or with Reduce Animation on, nothing moves or shakes: effects stand still and fade out, a level-up shows a calm message. When the shell has animations disabled, effects are shown unanimated for the same time.</description>
+    </key>
+    <key name="animation-status" type="s">
+      <choices>
+        <choice value="unknown"/>
+        <choice value="available"/>
+        <choice value="reduced"/>
+        <choice value="inhibited"/>
+      </choices>
+      <default>"unknown"</default>
+      <summary>Shell animation status (written by the extension)</summary>
+      <description>Not a user setting. Lets the prefs window show whether the shell allows animations: "available"; "reduced" (Reduce Animation is on); "inhibited" (the shell disabled them, e.g. software rendering or a remote session); "unknown" (extension not running).</description>
+    </key>
+
+    <!-- Helper notices -->
+    <key name="warn-helper-missing" type="b">
+      <default>true</default>
+      <summary>Notify when rg-helper is not installed</summary>
+      <description>Show a notification (once per session) when the helper is not installed and the extension runs in limited mode. Set to false by the notification's "Don't show again". A helper that is installed but not working is always reported.</description>
+    </key>
+    <key name="helper-status" type="(ss)">
+      <default>("unknown", "")</default>
+      <summary>rg-helper status (written by the extension)</summary>
+      <description>Not a user setting. Lets the prefs window show the helper's state without starting it: "subscribed"; "connecting" (waiting for the helper, or it is restarting); "missing" (not installed); "failed" with the reason; "unknown" (extension not running).</description>
+    </key>
+    <key name="helper-notices-shown" type="(sas)">
+      <default>("", [])</default>
+      <summary>Helper notices already shown (written by the extension)</summary>
+      <description>Not a user setting. The shell session the notices were shown in, and their kinds ("missing", "failed"), so a notice is shown at most once per session although the extension is disabled on every screen lock.</description>
+    </key>
+  </schema>
+</schemalist>

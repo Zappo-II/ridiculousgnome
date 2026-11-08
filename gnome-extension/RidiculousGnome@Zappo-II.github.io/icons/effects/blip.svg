@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<!-- Effect: blip (a typed key) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- White halo outside a dark rim, so it reads on light, dark and coloured backgrounds -->
+  <defs>
+    <filter id="halo" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="outer"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="outer" operator="in" result="white"/>
+      <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="inner"/>
+      <feFlood flood-color="#241f31" flood-opacity="0.85"/>
+      <feComposite in2="inner" operator="in" result="dark"/>
+      <feMerge>
+        <feMergeNode in="white"/>
+        <feMergeNode in="dark"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#halo)">
+    <!-- shrunk a little so the halo fits inside the 128 px box -->
+    <g transform="translate(64 64) scale(0.88) translate(-64 -64)">
+  <g transform="translate(64 64)" stroke-linecap="round">
+    <g stroke="#ff7800" stroke-width="7">
+      <line x1="0" y1="-30" x2="0" y2="-56"/>
+      <line x1="0" y1="30" x2="0" y2="56"/>
+      <line x1="-30" y1="0" x2="-56" y2="0"/>
+      <line x1="30" y1="0" x2="56" y2="0"/>
+    </g>
+    <g stroke="#f6d32d" stroke-width="5">
+      <line x1="21" y1="-21" x2="36" y2="-36"/>
+      <line x1="-21" y1="-21" x2="-36" y2="-36"/>
+      <line x1="21" y1="21" x2="36" y2="36"/>
+      <line x1="-21" y1="21" x2="-36" y2="36"/>
+    </g>
+    <path d="M0 -26 L7 -7 L26 0 L7 7 L0 26 L-7 7 L-26 0 L-7 -7 Z" fill="#f8e45c"/>
+    <circle r="8" fill="#ffffff"/>
+  </g>
+    </g>
+  </g>
+</svg>

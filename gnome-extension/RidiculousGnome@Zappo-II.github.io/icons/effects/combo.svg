@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<!-- Effect: combo (a shortcut) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- White halo outside a dark rim, so it reads on light, dark and coloured backgrounds -->
+  <defs>
+    <filter id="halo" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="outer"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="outer" operator="in" result="white"/>
+      <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="inner"/>
+      <feFlood flood-color="#241f31" flood-opacity="0.85"/>
+      <feComposite in2="inner" operator="in" result="dark"/>
+      <feMerge>
+        <feMergeNode in="white"/>
+        <feMergeNode in="dark"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#halo)">
+    <!-- shrunk a little so the halo fits inside the 128 px box -->
+    <g transform="translate(64 64) scale(0.88) translate(-64 -64)">
+  <g transform="translate(64 64)">
+    <path d="M0 -60 L14 -24 L52 -30 L26 0 L52 30 L14 24 L0 60 L-14 24 L-52 30 L-26 0 L-52 -30 L-14 -24 Z"
+          fill="#f6d32d" stroke="#e5a50a" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="-24" y="-22" width="48" height="44" rx="9" fill="#ffffff" stroke="#9a9996" stroke-width="4"/>
+    <rect x="-16" y="-15" width="32" height="24" rx="5" fill="#deddda"/>
+  </g>
+    </g>
+  </g>
+</svg>

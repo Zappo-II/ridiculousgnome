@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<!-- Effect: boom (BackSpace, Delete) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- White halo outside a dark rim, so it reads on light, dark and coloured backgrounds -->
+  <defs>
+    <filter id="halo" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="outer"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="outer" operator="in" result="white"/>
+      <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="inner"/>
+      <feFlood flood-color="#241f31" flood-opacity="0.85"/>
+      <feComposite in2="inner" operator="in" result="dark"/>
+      <feMerge>
+        <feMergeNode in="white"/>
+        <feMergeNode in="dark"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#halo)">
+    <!-- shrunk a little so the halo fits inside the 128 px box -->
+    <g transform="translate(64 64) scale(0.88) translate(-64 -64)">
+  <g transform="translate(64 64)">
+    <path d="M0 -60 L12 -34 L40 -50 L32 -20 L60 -12 L36 4 L54 30 L24 26 L18 56 L0 34 L-18 58 L-22 28 L-52 34 L-36 6 L-60 -10 L-32 -20 L-42 -48 L-14 -34 Z"
+          fill="#e01b24" stroke="#3d0a0a" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M0 -38 L8 -20 L26 -30 L20 -10 L38 -4 L22 8 L32 24 L14 20 L8 36 L-2 20 L-14 34 L-14 16 L-34 18 L-22 2 L-36 -8 L-18 -14 L-24 -30 L-8 -22 Z"
+          fill="#ff7800"/>
+    <path d="M0 -18 L6 -8 L18 -10 L10 0 L16 12 L4 8 L-2 18 L-6 6 L-18 8 L-10 -2 L-16 -12 L-4 -8 Z"
+          fill="#f8e45c"/>
+    <circle cx="48" cy="-38" r="4" fill="#3d0a0a"/>
+    <circle cx="-50" cy="44" r="3" fill="#3d0a0a"/>
+    <circle cx="44" cy="46" r="3" fill="#ff7800"/>
+    <circle cx="-46" cy="-34" r="4" fill="#ff7800"/>
+  </g>
+    </g>
+  </g>
+</svg>

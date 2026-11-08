@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 Zappo-II
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+# Install to /usr/share/dbus-1/system-services/.
+# D-Bus activation hands the start over to systemd.
+[D-BUS Service]
+Name=io.github.zappoii.RidiculousGnome.Helper
+Exec=/bin/false
+User=rg-helper
+SystemdService=rg-helper.service

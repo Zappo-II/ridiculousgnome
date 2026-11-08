@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<!-- Effect: nav (an arrow key); points right, turned by the code.
+     White halo outside a dark outline, so it reads on light, dark and coloured backgrounds. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <g stroke-linecap="round">
+    <g stroke="#ffffff" stroke-width="14">
+      <line x1="12" y1="42" x2="32" y2="42"/>
+      <line x1="8" y1="64" x2="36" y2="64"/>
+      <line x1="12" y1="86" x2="32" y2="86"/>
+    </g>
+    <g stroke="#1a5fb4" stroke-width="7">
+      <line x1="12" y1="42" x2="32" y2="42"/>
+      <line x1="8" y1="64" x2="36" y2="64"/>
+      <line x1="12" y1="86" x2="32" y2="86"/>
+    </g>
+  </g>
+  <path id="arrow" d="M48 50 H74 V26 L116 64 L74 102 V78 H48 Z" fill="none" stroke="#ffffff"
+        stroke-width="16" stroke-linejoin="round"/>
+  <path d="M48 50 H74 V26 L116 64 L74 102 V78 H48 Z" fill="#3584e4" stroke="#0b3b75"
+        stroke-width="6" stroke-linejoin="round"/>
+  <path d="M54 56 H80 V40 L104 62" fill="none" stroke="#99c1f1" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2026 Zappo-II
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+# Install to /usr/lib/systemd/system/rg-helper.service.
+# Started on demand through D-Bus activation on the system bus; exits
+# after 30 s without subscribers (--exit-idle).
+[Unit]
+Description=RidiculousGnome input helper
+
+[Service]
+Type=dbus
+BusName=io.github.zappoii.RidiculousGnome.Helper
+ExecStart=/usr/libexec/rg-helper --exit-idle
+User=rg-helper
+Group=rg-helper
+SupplementaryGroups=input
+
+# Hardening: read input devices and talk D-Bus, nothing else
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateNetwork=yes
+RestrictAddressFamilies=AF_UNIX
+DevicePolicy=closed
+DeviceAllow=char-input r
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+UMask=0077

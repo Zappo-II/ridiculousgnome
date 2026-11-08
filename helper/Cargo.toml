@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2026 Zappo-II
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+[package]
+name = "rg-helper"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-2.0-or-later"
+
+[dependencies]
+evdev = "0.13"
+futures-util = { version = "=0.3.34", default-features = false }
+kbvm = "0.2"
+nix = { version = "0.29", default-features = false, features = ["inotify"] }
+serde = "1.0.229"
+zbus = "6"

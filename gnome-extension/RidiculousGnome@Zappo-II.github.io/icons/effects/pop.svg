@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<!-- Effect: pop (mouse button down) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- White halo outside a dark rim, so it reads on light, dark and coloured backgrounds -->
+  <defs>
+    <filter id="halo" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="outer"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="outer" operator="in" result="white"/>
+      <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="inner"/>
+      <feFlood flood-color="#241f31" flood-opacity="0.85"/>
+      <feComposite in2="inner" operator="in" result="dark"/>
+      <feMerge>
+        <feMergeNode in="white"/>
+        <feMergeNode in="dark"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#halo)">
+    <!-- shrunk a little so the halo fits inside the 128 px box -->
+    <g transform="translate(64 64) scale(0.88) translate(-64 -64)">
+  <g transform="translate(64 64)">
+    <circle r="34" fill="none" stroke="#c061cb" stroke-width="8"/>
+    <circle r="20" fill="none" stroke="#f66151" stroke-width="5" stroke-dasharray="10 8"/>
+    <g fill="#dc8add">
+      <circle cx="0" cy="-52" r="6"/>
+      <circle cx="45" cy="-26" r="5"/>
+      <circle cx="45" cy="26" r="6"/>
+      <circle cx="0" cy="52" r="5"/>
+      <circle cx="-45" cy="26" r="6"/>
+      <circle cx="-45" cy="-26" r="5"/>
+    </g>
+    <circle r="6" fill="#ffffff"/>
+  </g>
+    </g>
+  </g>
+</svg>

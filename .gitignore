@@ -1,0 +1,4 @@
+gnome-extension/*/schemas/gschemas.compiled
+gnome-extension/*/locale/
+*.zip
+build/
