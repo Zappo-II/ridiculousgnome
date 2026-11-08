@@ -42,7 +42,7 @@ VM_TMP    ?= /tmp/ridiculousgnome
 EXT_ZIP   := $(BUILD)/$(UUID).shell-extension.zip
 TARBALL   := $(BUILD)/rg-helper-$(PKG_VERSION)-x86_64.tar.gz
 # Licenses of what is linked into the static binary (Rust std, musl, crates)
-THIRD_PARTY := $(BUILD)/THIRD-PARTY-LICENSES
+THIRD_PARTY := $(BUILD)/third-party
 
 .DEFAULT_GOAL := help
 .PHONY: help build helper extension pot translations check nested vm-install vm-remove vm-extension vm-reachable \
@@ -127,12 +127,11 @@ uninstall: ## Remove the helper again (the system user rg-helper stays)
 	$(INSTALL_ENV) ./$(INSTALL_SH) --uninstall
 
 third-party: helper ## Write the licenses of everything linked into the helper binary
-	@mkdir -p $(BUILD)
 	packaging/third-party-licenses.py $(THIRD_PARTY)
 
 dist: helper third-party ## Release tarball of the helper: binary, system files, install.sh, Makefile
 	@rm -rf $(BUILD)/stage && mkdir -p $(BUILD)/stage/$(DIST)
-	cp $(HELPER)/target/$(TARGET)/release/rg-helper $(HELPER)/install.sh Makefile README.md LICENSE $(THIRD_PARTY) $(BUILD)/stage/
+	cp $(HELPER)/target/$(TARGET)/release/rg-helper $(HELPER)/install.sh Makefile README.md LICENSE $(THIRD_PARTY)/THIRD-PARTY-* $(BUILD)/stage/
 	cp $(DIST)/* $(BUILD)/stage/$(DIST)/
 	echo $(VERSION) > $(BUILD)/stage/VERSION
 	tar -czf $(TARBALL) --transform 's|^stage|rg-helper-$(PKG_VERSION)|' -C $(BUILD) stage

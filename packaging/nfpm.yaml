@@ -48,12 +48,13 @@ contents:
     dst: /usr/share/licenses/rg-helper/LICENSE
     type: license
     packager: rpm
-  - src: build/THIRD-PARTY-LICENSES
-    dst: /usr/share/doc/rg-helper/THIRD-PARTY-LICENSES
+  - src: build/third-party/THIRD-PARTY-*
+    dst: /usr/share/doc/rg-helper/
     packager: deb
-  - src: build/THIRD-PARTY-LICENSES
-    dst: /usr/share/licenses/rg-helper/THIRD-PARTY-LICENSES
-    type: license
+  # nfpm does not glob entries of type license; plain files in the
+  # licenses directory are just as good
+  - src: build/third-party/THIRD-PARTY-*
+    dst: /usr/share/licenses/rg-helper/
     packager: rpm
 
 scripts:

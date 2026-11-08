@@ -270,11 +270,14 @@ themselves). New language: copy the `.pot` to `po/<lang>.po`.
 | `make arch` | `rg-helper-bin` with `makepkg` |
 
 The helper binary is statically linked, so tarball and packages carry
-`THIRD-PARTY-LICENSES` next to `LICENSE`: the Rust standard library, musl
-and every linked crate with its license text. `make third-party` writes
-it from `cargo metadata` (`packaging/third-party-licenses.py`); it stops
-when a crate has no license file and is not MIT, and warns when it uses
-the standard MIT text for one.
+the licenses of what is linked into it next to `LICENSE`:
+`THIRD-PARTY-LICENSES` lists the Rust standard library, musl and every
+crate, `THIRD-PARTY-<license>` holds the texts, one file per license
+(namcap checks for that). Where a crate offers a choice, MIT is taken.
+`make third-party` writes them into `build/third-party/` from `cargo
+metadata` (`packaging/third-party-licenses.py`); it stops when a needed
+license text is missing (except MIT, where it warns and uses the
+standard text).
 
 Packages need a version: a tag `vX.Y.Z` on the commit, or
 `VERSION=X.Y.Z`. One tag covers helper and extension; whether they fit

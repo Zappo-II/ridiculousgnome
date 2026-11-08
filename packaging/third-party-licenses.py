@@ -1,20 +1,27 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2026 Zappo-II
 # SPDX-License-Identifier: GPL-2.0-or-later
-"""Writes THIRD-PARTY-LICENSES for the static rg-helper binary.
+"""Writes the third-party license files for the static rg-helper binary.
 
 The binary contains the Rust standard library, musl libc and every crate
 linked into it (proc macros and build-only dependencies are left out:
 they run at build time and end up in no binary). Their licenses ask for
 the notice to travel with the binary, so `make dist`, `make deb rpm` and
-the Arch package ship this file next to LICENSE.
+the Arch package ship these files next to LICENSE:
 
-Usage: third-party-licenses.py OUTPUT
+  THIRD-PARTY-LICENSES      what is in the binary, under which license
+  THIRD-PARTY-<license>     the license texts, one file per license
+
+Where a crate offers a choice ("MIT OR Apache-2.0") MIT is taken, so the
+files are MIT plus whatever a crate requires on top (e.g. Zlib,
+Unicode-3.0). One file per license is what Arch's namcap checks for.
+
+Usage: third-party-licenses.py OUTPUT_DIR
 Environment: RUST_LICENSE_DIR (default /usr/share/licenses/rust-musl),
 MUSL_COPYRIGHT (default /usr/share/licenses/musl/COPYRIGHT).
 """
 
-import hashlib
+import glob
 import json
 import os
 import re
@@ -26,6 +33,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 MANIFEST = os.path.join(HERE, '..', 'helper', 'Cargo.toml')
 LICENSE_FILE = re.compile(r'^(LICEN[CS]E|COPYING|COPYRIGHT|UNLICENSE|NOTICE)', re.I)
 RULE = '=' * 78
+# Preference when a crate offers a choice
+PREFERRED = ['MIT', 'Zlib', 'Apache-2.0']
+# How to recognise a license text, by file name or by its first lines
+SIGNS = {
+    'MIT': (r'MIT', r'^\s*(The )?MIT License|Permission is hereby granted, free of charge'),
+    'Zlib': (r'ZLIB', r"provided 'as-is', without any express or implied"),
+    'Unicode-3.0': (r'UNICODE', r'UNICODE LICENSE|Unicode License'),
+    'Apache-2.0': (r'APACHE', r'Apache License\s+Version 2\.0'),
+}
 MIT_TEXT = '''MIT License
 
 Copyright (c) {holders}
@@ -52,6 +68,10 @@ SOFTWARE.
 
 def die(msg):
     sys.exit(f'third-party-licenses: {msg}')
+
+
+def warn(msg):
+    print(f'third-party-licenses: {msg}', file=sys.stderr)
 
 
 def read(path):
@@ -83,23 +103,58 @@ def linked_crates():
     return sorted((packages[p] for p in seen), key=lambda p: (p['name'], p['version']))
 
 
-def license_texts(pkg):
+def chosen_licenses(expr):
+    """The licenses rg-helper uses a crate under: one per OR group, all of an AND.
+
+    Handles the forms crates use: "A OR B", "A/B", "(A OR B) AND C",
+    "A WITH exception OR B".
+    """
+    chosen = []
+    for group in re.split(r'\s+AND\s+', expr.replace('/', ' OR ')):
+        options = [o.strip(' ()') for o in re.split(r'\s+OR\s+', group)]
+        options = [o for o in options if ' WITH ' not in o] or options
+        pick = next((p for p in PREFERRED if p in options), options[0])
+        chosen.append(pick)
+    return chosen
+
+
+def license_of(name, text):
+    # The file name first: the Unicode license also starts with "Permission
+    # is hereby granted, free of charge"
+    for lic, (by_name, _) in SIGNS.items():
+        if re.search(by_name, name, re.I):
+            return lic
+    head = text[:600]
+    for lic, (_, by_text) in SIGNS.items():
+        if re.search(by_text, head, re.I | re.M):
+            return lic
+    return None
+
+
+def crate_texts(pkg):
+    """{license: (file name, text)} for the licenses chosen for this crate."""
     folder = os.path.dirname(pkg['manifest_path'])
     names = sorted(n for n in os.listdir(folder)
                    if LICENSE_FILE.match(n) and os.path.isfile(os.path.join(folder, n)))
-    if pkg.get('license_file'):
-        names.append(pkg['license_file'])
-    texts = [(n, read(os.path.join(folder, n))) for n in dict.fromkeys(names)]
-    if texts:
-        return texts
-    # Some crates publish only the SPDX expression; for MIT the standard
-    # text with the crate's authors stands in for the missing file.
-    if not re.search(r'\bMIT\b', pkg.get('license') or ''):
-        die(f"{pkg['name']} {pkg['version']}: no license file in {folder}, and not MIT")
-    holders = ', '.join(pkg.get('authors') or []) or f"the {pkg['name']} authors"
-    print(f"third-party-licenses: {pkg['name']} {pkg['version']} has no license file, "
-          'using the standard MIT text', file=sys.stderr)
-    return [('standard MIT text, no license file published', MIT_TEXT.format(holders=holders))]
+    found = {}
+    for n in names:
+        text = read(os.path.join(folder, n))
+        lic = license_of(n, text)
+        if lic and lic not in found:
+            found[lic] = (n, text)
+    texts = {}
+    for lic in chosen_licenses(pkg.get('license') or ''):
+        if lic in found:
+            texts[lic] = found[lic]
+        elif lic == 'MIT':
+            # Some crates publish only the SPDX expression; the standard
+            # text with the crate's authors stands in for the missing file.
+            holders = ', '.join(pkg.get('authors') or []) or f"the {pkg['name']} authors"
+            warn(f"{pkg['name']} {pkg['version']} has no MIT license file, using the standard text")
+            texts[lic] = ('standard MIT text, no license file published', MIT_TEXT.format(holders=holders))
+        else:
+            die(f"{pkg['name']} {pkg['version']}: no {lic} license text in {folder}")
+    return texts
 
 
 def section(title, body):
@@ -108,44 +163,59 @@ def section(title, body):
 
 def main():
     if len(sys.argv) != 2:
-        die('usage: third-party-licenses.py OUTPUT')
+        die('usage: third-party-licenses.py OUTPUT_DIR')
+    out_dir = sys.argv[1]
     rust_dir = os.environ.get('RUST_LICENSE_DIR', '/usr/share/licenses/rust-musl')
     musl = os.environ.get('MUSL_COPYRIGHT', '/usr/share/licenses/musl/COPYRIGHT')
     for path in (os.path.join(rust_dir, 'COPYRIGHT'), os.path.join(rust_dir, 'LICENSE-MIT'), musl):
         if not os.path.isfile(path):
             die(f'{path} missing (Arch: pacman -S rust-musl musl)')
 
+    # license -> list of (title, text); identical texts are merged below
+    by_license = {'MIT': [
+        ('Rust standard library', read(os.path.join(rust_dir, 'COPYRIGHT')) + '\n'
+         + read(os.path.join(rust_dir, 'LICENSE-MIT'))),
+        ('musl libc', read(musl)),
+    ]}
+    listing = [
+        '  Rust standard library  (MIT OR Apache-2.0; used under MIT)',
+        '  musl libc  (MIT)',
+        '  libunwind from LLVM  (Apache-2.0 WITH LLVM-exception; the exception waives',
+        '    the attribution requirement for this compiled form)',
+    ]
     crates = linked_crates()
-    out = [
+    for pkg in crates:
+        texts = crate_texts(pkg)
+        repo = pkg.get('repository') or pkg.get('homepage') or ''
+        listing.append(f"  {pkg['name']} {pkg['version']}  ({pkg.get('license')}; used under "
+                       f"{' AND '.join(texts)})  {repo}".rstrip())
+        for lic, (name, text) in texts.items():
+            by_license.setdefault(lic, []).append((f"{pkg['name']} {pkg['version']} ({name})", text))
+
+    os.makedirs(out_dir, exist_ok=True)
+    for old in glob.glob(os.path.join(out_dir, 'THIRD-PARTY-*')):
+        os.remove(old)
+    files = sorted(by_license)
+    index = (
         'Third-party software in rg-helper\n\n'
         'rg-helper itself is Copyright (C) 2026 Zappo-II, GPL-2.0-or-later (see\n'
         'LICENSE). Its binary is statically linked and also contains the\n'
-        'software below, under the licenses that follow. Where a crate offers\n'
-        'a choice (e.g. "MIT OR Apache-2.0"), rg-helper uses it under MIT.\n',
-        section('Rust standard library (MIT OR Apache-2.0)',
-                read(os.path.join(rust_dir, 'COPYRIGHT')) + '\n'
-                + read(os.path.join(rust_dir, 'LICENSE-MIT'))),
-        section('musl libc (MIT)', read(musl)),
-        section('libunwind from LLVM (Apache-2.0 WITH LLVM-exception)',
-                'Part of the Rust musl target. The LLVM exception waives the\n'
-                'attribution requirement for this compiled form.\n'),
-    ]
-
-    # Crates: one entry each; identical license texts are printed once.
-    listing, by_text = [], {}
-    for pkg in crates:
-        repo = pkg.get('repository') or pkg.get('homepage') or ''
-        listing.append(f"  {pkg['name']} {pkg['version']}  ({pkg.get('license') or '?'})  {repo}".rstrip())
-        for name, text in license_texts(pkg):
-            key = hashlib.sha256(text.encode()).hexdigest()
-            by_text.setdefault(key, [text, []])[1].append(f"{pkg['name']} {pkg['version']} ({name})")
-    out.append(section(f'Rust crates ({len(crates)})', '\n'.join(listing) + '\n'))
-    for text, users in by_text.values():
-        out.append(section('License text of:\n  ' + '\n  '.join(users), text))
-
-    with open(sys.argv[1], 'w', encoding='utf-8') as f:
-        f.write('\n'.join(out))
-    print(f'{sys.argv[1]}: {len(crates)} crates, {len(by_text)} license texts')
+        'software below. Where a component offers a choice of licenses,\n'
+        'rg-helper uses it under MIT. The license texts are in\n'
+        + ''.join(f'THIRD-PARTY-{lic}\n' for lic in files)
+        + '\n' + '\n'.join(listing) + '\n')
+    with open(os.path.join(out_dir, 'THIRD-PARTY-LICENSES'), 'w', encoding='utf-8') as f:
+        f.write(index)
+    for lic in files:
+        merged = {}
+        for title, text in by_license[lic]:
+            merged.setdefault(text, []).append(title)
+        body = [f'{lic} license texts of the components listed in THIRD-PARTY-LICENSES\n']
+        body += [section('\n'.join(titles), text) for text, titles in merged.items()]
+        with open(os.path.join(out_dir, f'THIRD-PARTY-{lic}'), 'w', encoding='utf-8') as f:
+            f.write('\n'.join(body))
+    print(f'{out_dir}: {len(crates)} crates; THIRD-PARTY-LICENSES, '
+          + ', '.join(f'THIRD-PARTY-{lic}' for lic in files))
 
 
 if __name__ == '__main__':

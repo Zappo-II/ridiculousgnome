@@ -52,9 +52,9 @@ do_install() {
     install -Dm644 "$dist/rg-helper.sysusers.conf" "$DESTDIR$SYSUSERSDIR/rg-helper.conf"
     install -Dm644 "$dist/$bus_name.conf" "$DESTDIR$DBUSDIR/system.d/$bus_name.conf"
     install -Dm644 "$dist/$bus_name.service" "$DESTDIR$DBUSDIR/system-services/$bus_name.service"
-    # License texts: the tarball has both next to this script
-    for f in LICENSE THIRD-PARTY-LICENSES; do
-        if [ -f "$here/$f" ]; then install -Dm644 "$here/$f" "$DESTDIR$LICENSEDIR/$f"; fi
+    # License texts: the tarball has them next to this script
+    for f in "$here"/LICENSE "$here"/THIRD-PARTY-*; do
+        if [ -f "$f" ]; then install -Dm644 "$f" "$DESTDIR$LICENSEDIR/${f##*/}"; fi
     done
     # An existing config keeps its max-detail
     [ -e "$DESTDIR$SYSCONFDIR/rg-helper.conf" ] ||
@@ -75,7 +75,7 @@ do_uninstall() {
           "$DESTDIR$SYSUSERSDIR/rg-helper.conf" \
           "$DESTDIR$DBUSDIR/system.d/$bus_name.conf" \
           "$DESTDIR$DBUSDIR/system-services/$bus_name.service" \
-          "$DESTDIR$LICENSEDIR/LICENSE" "$DESTDIR$LICENSEDIR/THIRD-PARTY-LICENSES"
+          "$DESTDIR$LICENSEDIR/LICENSE" "$DESTDIR$LICENSEDIR"/THIRD-PARTY-*
     rmdir "$DESTDIR$LICENSEDIR" 2>/dev/null || true
     # A changed config stays
     if cmp -s "$dist/rg-helper.conf" "$DESTDIR$SYSCONFDIR/rg-helper.conf"; then

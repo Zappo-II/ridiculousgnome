@@ -4,7 +4,7 @@ Upstream-Contact: https://github.com/Zappo-II/ridiculousgnome/issues
 Source: https://github.com/Zappo-II/ridiculousgnome
 Comment: The binary is statically linked with the Rust standard library,
  musl libc and Rust crates under MIT and compatible licenses; their
- notices are in /usr/share/doc/rg-helper/THIRD-PARTY-LICENSES.
+ notices are in /usr/share/doc/rg-helper/THIRD-PARTY-*.
 
 Files: *
 Copyright: 2026 Zappo-II
