@@ -112,7 +112,7 @@ export default class RidiculousGnomeExtension extends Extension {
 
     disable() {
         this._stopBackend();
-        this._notice.hide();
+        this._notice.destroy();
         this._notice = null;
 
         St.Settings.get().disconnect(this._animationsChangedId);

@@ -26,17 +26,7 @@ import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js'
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
 
-/** @returns {string} boot id and shell pid: new for every shell process */
-function sessionId() {
-    let bootId = '';
-    try {
-        bootId = new TextDecoder().decode(
-            GLib.file_get_contents('/proc/sys/kernel/random/boot_id')[1]).trim();
-    } catch {
-        // no /proc: the pid alone still tells shell processes apart
-    }
-    return `${bootId}/${new Gio.Credentials().get_unix_pid()}`;
-}
+const BOOT_ID = '/proc/sys/kernel/random/boot_id';
 
 export class HelperNotice {
     /**
@@ -47,17 +37,46 @@ export class HelperNotice {
         this._settings = settings;
         this._openPreferences = openPreferences;
         this._source = null;
+
+        // The session id (boot id and shell pid: new for every shell
+        // process) is read once, without blocking the shell; calls that
+        // come before it wait in _pending.
+        this._sessionId = null;
+        this._pending = [];
+        this._cancellable = new Gio.Cancellable();
+        Gio.File.new_for_path(BOOT_ID).load_contents_async(this._cancellable, (file, result) => {
+            let bootId = '';
+            try {
+                bootId = new TextDecoder().decode(file.load_contents_finish(result)[1]).trim();
+            } catch (e) {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    return;
+                // no /proc: the pid alone still tells shell processes apart
+            }
+            this._sessionId = `${bootId}/${new Gio.Credentials().get_unix_pid()}`;
+            const pending = this._pending;
+            this._pending = [];
+            pending.forEach(call => call());
+        });
+    }
+
+    /** Runs call now, or once the session id is known. */
+    _whenReady(call) {
+        if (this._sessionId === null)
+            this._pending.push(call);
+        else
+            call();
     }
 
     /** @returns {Set<string>} kinds already shown in this shell session */
     _shown() {
         const [session, kinds] = this._settings.get_value('helper-notices-shown').deep_unpack();
-        return new Set(session === sessionId() ? kinds : []);
+        return new Set(session === this._sessionId ? kinds : []);
     }
 
     _setShown(kinds) {
         this._settings.set_value('helper-notices-shown',
-            new GLib.Variant('(sas)', [sessionId(), [...kinds]]));
+            new GLib.Variant('(sas)', [this._sessionId, [...kinds]]));
     }
 
     /**
@@ -66,6 +85,10 @@ export class HelperNotice {
      * @param {string} [detail] - error message, for 'failed'
      */
     show(kind, detail = '') {
+        this._whenReady(() => this._show(kind, detail));
+    }
+
+    _show(kind, detail) {
         const shown = this._shown();
         if (shown.has(kind))
             return;
@@ -118,14 +141,24 @@ export class HelperNotice {
     /** The helper works: removes the notice and allows it again. */
     resolved() {
         this.hide();
-        // Runs on every unlock; write only when something was shown
-        if (this._shown().size > 0)
-            this._setShown([]);
+        this._whenReady(() => {
+            this.hide();
+            // Runs on every unlock; write only when something was shown
+            if (this._shown().size > 0)
+                this._setShown([]);
+        });
     }
 
     /** Removes a notice still on screen or in the message list. */
     hide() {
         this._source?.destroy(MessageTray.NotificationDestroyedReason.SOURCE_CLOSED);
         this._source = null;
+    }
+
+    /** For disable(): stops the pending read and removes the notice. */
+    destroy() {
+        this._cancellable.cancel();
+        this._pending = [];
+        this.hide();
     }
 }
