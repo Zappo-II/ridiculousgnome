@@ -46,7 +46,7 @@ THIRD_PARTY := $(BUILD)/third-party
 
 .DEFAULT_GOAL := help
 .PHONY: help build helper extension pot translations check nested vm-install vm-remove vm-extension vm-reachable \
-        install uninstall third-party dist check-version deb rpm packages arch aur release release-check clean
+        install uninstall third-party dist check-version deb rpm packages arch aur release release-check aur-publish aur-publish-check clean
 
 help: ## List the targets
 	@awk 'BEGIN { FS = ":.*## " } /^[a-z][a-z -]*:.*## / { printf "  %-12s %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
@@ -168,6 +168,12 @@ release: ## Release VERSION=X.Y.Z: version, build, commit, tag, push, GitHub rel
 
 release-check: ## Dry run of release: builds and shows the changes, then undoes them
 	packaging/release.sh --dry-run $(PKG_VERSION)
+
+aur-publish: ## After release: push packaging/arch to the AUR (rg-helper-bin), after a test build; AUR_DIR=...
+	packaging/aur-publish.sh
+
+aur-publish-check: ## Dry run of aur-publish: test build and changes, nothing pushed
+	packaging/aur-publish.sh --dry-run
 
 clean: ## Remove build output
 	rm -rf $(BUILD)
