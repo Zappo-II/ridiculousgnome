@@ -20,8 +20,9 @@
  * animations (e.g. a VM without 3D) it stands still and vanishes at the
  * end, as the shell skips fades then too.
  *
- * Limits as in the VS Code original: at most MAX_ALIVE of each effect at a
- * time (the oldest goes), and blip / boom not more often than minGapMs.
+ * Limits, in the spirit of the VS Code original: at most MAX_ALIVE of each
+ * effect at a time, or the effect's own max (sparkle, motion, swipe); the
+ * oldest goes. blip, boom and scroll not more often than minGapMs.
  * All this runs in the compositor process.
  */
 
@@ -50,7 +51,10 @@ const EFFECTS = {
     swipe: {size: 64, ttl: 500, minGapMs: 0, startScale: 1.0, endScale: 0.9, floatUp: 0, turn: 0, fly: 400, icon: 'nav', max: 6},
     pinch: {size: 120, ttl: 450, minGapMs: 0, startScale: 1.0, endScale: 1.0, floatUp: 0, turn: 0},
 };
-const MAX_ALIVE = 5;
+const MAX_ALIVE = 10;
+// Share of a sprite's ttl it stays fully visible before fading out (the
+// arrows: half, while they fly)
+const FADE_HOLD = 0.4;
 
 // Pinch: the ring's scale from start to end
 const PINCH_SCALES = {in: [1.3, 0.3], out: [0.3, 1.3]};
@@ -564,8 +568,17 @@ export class Sprites {
             scale_y: startScale,
             rotation_angle_z: (Math.random() - 0.5) * spec.turn,
         });
-        icon.ease({
+        // Fully visible for the first part of its life, then fading; its
+        // own ease, as it starts later than the movement
+        const hold = spec.ttl * FADE_HOLD;
+        const fadeOut = actor => actor.ease({
             opacity: 0,
+            delay: hold,
+            duration: spec.ttl - hold,
+            mode: Clutter.AnimationMode.EASE_IN_QUAD,
+        });
+        fadeOut(icon);
+        icon.ease({
             scale_x: endScale,
             scale_y: endScale,
             translation_y: -spec.floatUp * scale,
@@ -574,15 +587,17 @@ export class Sprites {
             mode: Clutter.AnimationMode.EASE_OUT_QUAD,
             onStopped: () => this._remove(name, actors),
         });
-        text?.set({scale_x: 0.8, scale_y: 0.8});
-        text?.ease({
-            opacity: 0,
-            scale_x: 1.2,
-            scale_y: 1.2,
-            translation_y: -LABEL_FLOAT_UP * scale,
-            duration: spec.ttl,
-            mode: Clutter.AnimationMode.EASE_OUT_QUAD,
-        });
+        if (text) {
+            text.set({scale_x: 0.8, scale_y: 0.8});
+            fadeOut(text);
+            text.ease({
+                scale_x: 1.2,
+                scale_y: 1.2,
+                translation_y: -LABEL_FLOAT_UP * scale,
+                duration: spec.ttl,
+                mode: Clutter.AnimationMode.EASE_OUT_QUAD,
+            });
+        }
     }
 
     _remove(name, actors) {
