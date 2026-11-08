@@ -1,5 +1,7 @@
 # Ridiculous Gnome
 
+<img src="gnome-extension/RidiculousGnome@Zappo-II.github.io/icons/ridiculousgnome-logo.svg" alt="" width="96">
+
 A GNOME Shell extension that shows short-lived effects on screen while you
 type and click — inspired by the "Ridiculous Coding" VS Code plugin, but
 for every app. Two modes: **ridiculous** (sparks and explosions where you
@@ -7,6 +9,8 @@ type, pops where you click, a sparkle trail when you drag, optionally a
 shaking window and sounds; XP with a level in the top bar and fireworks
 at a level-up) and **presentation** (keys and
 shortcuts at a fixed place, click rings — for screencasts and demos).
+
+![Ridiculous mode: effects around a text editor while typing, a sparkle trail while dragging](.github/screenshot.png)
 
 Works on GNOME 50 and 51 (Wayland), x86_64.
 
