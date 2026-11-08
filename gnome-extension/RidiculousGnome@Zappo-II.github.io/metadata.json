@@ -1,5 +1,5 @@
 {
-  "version-name": "1.0.0",
+  "version-name": "1.0.1",
   "uuid": "RidiculousGnome@Zappo-II.github.io",
   "name": "Ridiculous Gnome",
   "description": "Shows your keyboard and mouse input on screen, in one of two modes.\n\nPresentation: keys and shortcuts (Ctrl + Shift + T) at a fixed place on screen, as a subtitle, heading or corner card, and rings where you click. For screen recordings, tutorials and live demos.\n\nRidiculous: playful effects where you type and click.\n\nWhat you type becomes visible on screen, also in screen shares and recordings. By default typed keys only show as classes (abc, 123, #!?) and shortcuts by name (Ctrl + T), never as the characters typed; this can be changed, or effects turned off, per app.\n\nEffects for all apps need rg-helper, a small system service installed separately with root rights (see the GitHub page). Without it the extension runs in a limited mode: effects only for the shell itself, e.g. when typing in the Activities overview.",
