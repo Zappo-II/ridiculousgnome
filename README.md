@@ -31,7 +31,7 @@ any other window.
 
 Install from EGO...
 
-- [extensions.gnome.org](https://extensions.gnome.org/)
+- [extensions.gnome.org](https://extensions.gnome.org/) (first review pending)
 
 Or download `RidiculousGnome@Zappo-II.github.io.shell-extension.zip`
 from releases...
