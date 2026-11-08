@@ -54,17 +54,26 @@ schema and the translations. Run it before every commit.
 
 ## Architecture
 
-```
-/dev/input/event*                         gnome-shell (unprivileged,
-      │  evdev                             active-session user)
-      ▼                                   ┌──────────────────────────────┐
-┌───────────────┐    system D-Bus         │ extension.js                 │
-│ rg-helper     │◀── Subscribe() ─────────│  EvdevInputSource ──onEvent─▶│
-│ system user   │◀── SetKeyboardLayout() ─│  Filter (window rules)       │
-│ rg-helper,    │◀── SetDetail() ─────────│   → renderer of the mode     │
-│ group input   │── unicast signals ─────▶│  FocusTracker                │
-│  xkb, logind  │   (Key, Button, …)      └──────────────────────────────┘
-└───────────────┘
+```mermaid
+flowchart LR
+    devices["/dev/input/event*<br/>keyboards, mice, touchpads"]
+    helper["<b>rg-helper</b><br/>system user rg-helper, group input<br/>xkb keymap, logind session"]
+    devices -- evdev --> helper
+
+    subgraph shell["gnome-shell: extension.js (unprivileged, active-session user)"]
+        evdev["EvdevInputSource<br/>+ TouchpadMapper"]
+        limited["ShellInputSource<br/>limited mode, shell UI only"]
+        focus["FocusTracker"]
+        filter["Filter<br/>event types, window rules, key detail"]
+        renderer["renderer of the mode<br/>presentation or ridiculous"]
+        evdev -- onEvent --> filter
+        limited -. "onEvent, without the helper" .-> filter
+        focus -- focused window --> filter
+        filter --> renderer
+    end
+
+    evdev -- "system D-Bus: Subscribe, Unsubscribe,<br/>SetDetail, SetKeyboardLayout" --> helper
+    helper -- "unicast signals: Key, Button, Wheel, Motion, Touch,<br/>Tap, PadButton, Scroll, Swipe, Pinch" --> evdev
 ```
 
 ### Why a separate helper

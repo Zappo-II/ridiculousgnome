@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
 <!-- SPDX-License-Identifier: GPL-2.0-or-later -->
-<!-- Effect: nav (an arrow key); points right, turned by the code.
-     White halo outside a dark outline, so it reads on light, dark and coloured backgrounds. -->
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Effect: nav (an arrow key); points right, turned by the code.
+       White halo outside a dark outline, so it reads on light, dark and coloured backgrounds. -->
   <g stroke-linecap="round">
     <g stroke="#ffffff" stroke-width="14">
       <line x1="12" y1="42" x2="32" y2="42"/>

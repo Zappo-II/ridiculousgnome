@@ -75,10 +75,17 @@ $(EXT_DIR)/locale/%/LC_MESSAGES/$(DOMAIN).mo: po/%.po
 	@mkdir -p $(dir $@)
 	msgfmt --check -o $@ $<
 
-check: ## Run helper tests and clippy, validate the settings schema
+check: ## Run helper tests and clippy, validate the settings schema, translations and icons
 	cd $(HELPER) && cargo test --target $(TARGET) && cargo clippy --target $(TARGET)
 	glib-compile-schemas --strict --dry-run $(EXT_DIR)/schemas
 	$(foreach po,$(PO_FILES),msgfmt --check -o /dev/null $(po);)
+	@# glycin (gdk-pixbuf) only takes a file as SVG if <svg is in its first
+	@# 256 bytes; later, the icon stays empty without an error in the log
+	@bad=$$(for f in $$(find $(EXT_DIR)/icons -name '*.svg'); do \
+	    head -c 256 "$$f" | grep -q '<svg' || echo "$$f"; done); \
+	if [ -n "$$bad" ]; then \
+	    echo "<svg not in the first 256 bytes (move comments inside <svg>):" >&2; \
+	    echo "$$bad" >&2; exit 1; fi
 
 nested: translations ## Run the extension in a nested GNOME Shell
 	gnome-extension/run-nested.sh

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
 <!-- SPDX-License-Identifier: GPL-2.0-or-later -->
-<!-- Effect: motion (light blue sparkle along the pointer path) -->
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Effect: motion (light blue sparkle along the pointer path) -->
   <!-- White halo outside a dark rim, so it reads on light, dark and coloured backgrounds -->
   <defs>
     <filter id="halo" x="-10%" y="-10%" width="120%" height="120%">

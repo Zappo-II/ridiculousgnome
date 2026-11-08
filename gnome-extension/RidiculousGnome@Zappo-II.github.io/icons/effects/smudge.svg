@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-FileCopyrightText: 2026 Zappo-II -->
 <!-- SPDX-License-Identifier: GPL-2.0-or-later -->
-<!-- Effect: smudge (a finger resting on the touchpad); translucent, no halo -->
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Effect: smudge (a finger resting on the touchpad); translucent, no halo -->
   <defs>
     <radialGradient id="g" cx="50%" cy="45%" r="50%">
       <stop offset="0" stop-color="#5e5c64" stop-opacity="0.55"/>
