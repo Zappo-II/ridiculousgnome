@@ -46,7 +46,7 @@ Install from [releases](https://github.com/Zappo-II/ridiculousgnome/releases) (r
 | --------------------- | ---------------------------------------------------------------------------------- |
 | Ubuntu, Debian        | `sudo apt install ./rg-helper_X.Y.Z_amd64.deb`                                     |
 | Fedora                | `sudo dnf install ./rg-helper-X.Y.Z-1.x86_64.rpm`                                  |
-| Arch                  | `rg-helper-bin` from the AUR (coming), or the tarball below                        |
+| Arch                  | [`rg-helper-bin`](https://aur.archlinux.org/packages/rg-helper-bin) from the AUR, e.g. `paru -S rg-helper-bin` |
 | other systemd distros | `tar xzf rg-helper-X.Y.Z-x86_64.tar.gz && cd rg-helper-X.Y.Z && sudo ./install.sh` |
 
 No re-login needed: the extension notices the helper within seconds and
